@@ -2,9 +2,11 @@
 
 namespace WebApiCourse.Controllers
 {
+    [ApiController]
+    [Route("api/cities")]
     public class CitiesController : ControllerBase
     {
-        [HttpGet("api/cities")]
+        [HttpGet]
         public JsonResult GetCities()
         {
            return new JsonResult(
