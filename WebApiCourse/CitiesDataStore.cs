@@ -6,6 +6,8 @@ namespace WebApiCourse
     {
         public List<CityDto> Cities { get; set; }
 
+        public static CitiesDataStore Current { get; set; } = new CitiesDataStore();
+
         public CitiesDataStore() 
         {
             Cities = new List<CityDto>()
