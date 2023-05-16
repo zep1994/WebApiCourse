@@ -9,12 +9,7 @@ namespace WebApiCourse.Controllers
         [HttpGet]
         public JsonResult GetCities()
         {
-           return new JsonResult(
-                new List<object>
-                {
-                    new { id = 1, name = "Tom" },
-                    new { id = 2, name = "Jim"}
-                });
+           return new JsonResult(CitiesDataStore.Current.Cities);
         }
     }
 }
