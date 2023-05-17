@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApiCourse.Models;
 
 namespace WebApiCourse.Controllers
 {
@@ -13,9 +14,16 @@ namespace WebApiCourse.Controllers
         }
 
         [HttpGet("{id}")]
-        public JsonResult GetCity(int id) 
+        public ActionResult<CityDto> GetCity(int id) 
         {
-            return new JsonResult(CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id));
+           var cityToReturn = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id);
+
+            if (cityToReturn == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(cityToReturn);
         }
     }
 }
